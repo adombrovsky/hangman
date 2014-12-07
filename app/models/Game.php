@@ -10,6 +10,8 @@ use Adombrovsky\WordManager\Facades\WordManager;
 
 class Game  extends Eloquent
 {
+    protected $fillable = array('word','tries_left','status');
+
     const BUSY_STATUS = 'busy';
     const FAIL_STATUS = 'fail';
     const SUCCESS_STATUS = 'success';
@@ -18,7 +20,8 @@ class Game  extends Eloquent
     public static $rules = array(
         'default' => array(
             'word'          => 'required|min:2',
-            'tries_left'    => 'required|integer|max:11|min:11'
+            'tries_left'    => 'required|integer|max:11|min:11',
+            'status'        => 'required|in:busy,fail,success'
         )
     );
     /**

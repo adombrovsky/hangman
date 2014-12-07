@@ -53,7 +53,7 @@ class EloquentGameRepositoryTest extends TestCase
 
     public function testValidateReturnsTrue()
     {
-        $validationResult = $this->repo->validate(array('word'=>'test','tries_left'=>11));
+        $validationResult = $this->repo->validate(array('word'=>'test','tries_left'=>11, 'status'=>Game::BUSY_STATUS));
 
         $this->assertTrue($validationResult);
     }
@@ -129,6 +129,20 @@ class EloquentGameRepositoryTest extends TestCase
         }
 
         $this->fail('ValidationScenarioException was not raised');
+    }
+
+    public function testValidationShouldNotPassIncorrectStatusValue()
+    {
+        try
+        {
+            $this->repo->validate(array('word'=>'test','tries_left'=>11, 'status'=>'status'));
+        }
+        catch (ValidationException $e)
+        {
+            return;
+        }
+
+        $this->fail('ValidationException was not raised');
     }
 
     public function testStoreShouldReturnCorrectModel()

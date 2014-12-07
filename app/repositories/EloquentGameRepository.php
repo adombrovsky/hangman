@@ -96,15 +96,11 @@ class EloquentGameRepository implements GameRepositoryInterface
         $dataToStore = array(
             'tries_left' => Game::TRIES_COUNT,
             'word' => WordManager::getRandomWord(),
+            'status' => Game::BUSY_STATUS
         );
         $this->validate($dataToStore);
 
-        $game               = new Game();
-        $game->tries_left   = $dataToStore['tries_left'];
-        $game->word         = $dataToStore['word'];
-        $game->status       = Game::BUSY_STATUS;
-        $game->save();
-
+        $game = Game::create($dataToStore);
         if ($hideWord)
         {
             $game->word = $game->hideWord();
