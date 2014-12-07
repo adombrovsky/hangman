@@ -1,0 +1,9 @@
+<td>{{ id }}</td>
+<td>{{ status }}</td>
+<td>{{ word }}</td>
+<td>{{ tries_left }}</td>
+<td style="width: 250px;">
+    {{^finished}}
+    <a href="/games/{{id}}" class="btn btn-sm btn-info">Play</a>
+    {{/finished}}
+</td>
