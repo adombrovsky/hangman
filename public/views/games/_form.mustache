@@ -1,7 +1,7 @@
 <form method="POST" action="/games/{{id}}">
     <div class="form-group">
         <label for="letter">Letter</label>
-        <input type="text" class="form-control" name="letter" id="letter" placeholder="Enter letter">
+        <input autocomplete="off" type="text" class="form-control" name="letter" id="letter" placeholder="Enter letter">
         <input type="hidden" class="form-control" name="game_id" value="{{id}}">
         <div class="error_letter error_message" style="display: none;"></div>
     </div>

@@ -2,9 +2,9 @@ require.config({
     baseUrl: "/js/",
     paths: {
         jquery          : 'libs/jquery.min',
-        bootstrap       : 'libs/bootstrap',
-        underscore      : 'libs/node_modules/underscore/underscore',
-        backbone        : 'libs/node_modules/backbone/backbone',
+        bootstrap       : 'libs/bootstrap.min',
+        underscore      : 'libs/node_modules/underscore/underscore-min',
+        backbone        : 'libs/node_modules/backbone/backbone-min',
         mustache        : 'libs/node_modules/mustache/mustache'
     },
     shim: {
