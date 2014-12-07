@@ -43,32 +43,6 @@ class Game  extends Eloquent
     }
 
     /**
-     * Returns list of available game statuses
-     * @return array
-     */
-    public static function getStatusLabels()
-    {
-        return array(
-            self::BUSY_STATUS => 'Busy',
-            self::FAIL_STATUS => 'Fail',
-            self::SUCCESS_STATUS => 'Success',
-        );
-    }
-
-    /**
-     * Returns text label for the specific status
-     * @param $key
-     *
-     * @return mixed
-     */
-    public static function getStatusLabel($key)
-    {
-        $statuses = self::getStatusLabels();
-
-        return isset($statuses[$key]) ? $statuses[$key] : $key;
-    }
-
-    /**
      * @param $letter
      *
      * @return bool
