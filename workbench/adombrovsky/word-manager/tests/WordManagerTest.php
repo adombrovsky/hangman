@@ -52,15 +52,15 @@ class WordManagerTest extends  TestCase
     {
         $word = $this->wordManager->getRandomWord();
         $actualResult = $this->wordManager->hideWord($word);
-        $expectedResult = str_repeat('*',strlen($word));
+        $expectedResult = str_repeat(WordManager::LETTER_PLACEHOLDER,strlen($word));
         $this->assertEquals($expectedResult, $actualResult);
     }
 
     public function testHideWordShouldReturnOneShownLetter()
     {
-        $word = 'random';
+        $word = 'rom';
         $actualResult = $this->wordManager->hideWord($word,array('r'));
-        $expectedResult = 'r*****';
+        $expectedResult = 'r'.WordManager::LETTER_PLACEHOLDER.WordManager::LETTER_PLACEHOLDER;
         $this->assertEquals($expectedResult, $actualResult);
     }
 
@@ -68,7 +68,7 @@ class WordManagerTest extends  TestCase
     {
         $word = 'test';
         $actualResult = $this->wordManager->hideWord($word,array('t'));
-        $expectedResult = 't**t';
+        $expectedResult = 't'.WordManager::LETTER_PLACEHOLDER.WordManager::LETTER_PLACEHOLDER.'t';
         $this->assertEquals($expectedResult, $actualResult);
     }
 
